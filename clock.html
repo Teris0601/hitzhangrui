@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .Clock {
+            position: relative;
+        }
+        
+        #Circle {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        #Hour {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        #Minute {
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: move 60s linear 0 infinite;
+        }
+        
+        #Second {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        @keyframes move {
+            0% {
+                transfrom: rotateZ(0deg);
+            }
+            25% {
+                transfrom: rotateZ(90deg);
+            }
+            50% {
+                transfrom: rotateZ(180deg);
+            }
+            75% {
+                transfrom: rotateZ(270deg);
+            }
+            100% {
+                transfrom: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Clock">
+        <canvas id="Circle" width="1600px" height="1800px"></canvas>
+        <canvas id="Hour" width="1600px" height="1800px"></canvas>
+
+        <canvas id="Second" width="1600px" height="1800px"></canvas>
+
+
+        <div class="Clock2">
+            <canvas id="Minute" width="1600px" height="1800px"></canvas>
+        </div>
+    </div>
+
+</body>
+<script>
+    var Hour = document.getElementById("Hour");
+    var Minute = document.getElementById("Minute");
+    var Second = document.getElementById("Second");
+    var Circle = document.getElementById("Second");
+
+    var dom1 = Hour.getContext("2d");
+    var dom2 = Minute.getContext("2d");
+    var dom3 = Second.getContext("2d");
+    var dom4 = Circle.getContext("2d")
+
+
+    dom4.beginPath();
+    dom4.arc(500, 500, 400, 0, 2 * Math.PI, false);
+    dom4.lineWidth = "20";
+    dom4.strokeStyle = "red";
+    dom4.stroke();
+    dom4.closePath();
+
+
+
+    dom1.beginPath();
+    dom1.moveTo(500, 500);
+    dom1.lineTo(500, 250);
+    dom1.lineWidth = "10";
+    dom1.strokeStyle = "green";
+    dom1.stroke();
+    dom1.closePath();
+
+
+    dom2.beginPath();
+    dom2.moveTo(500, 500);
+    dom2.lineTo(850, 500);
+    dom2.lineWidth = "14";
+    dom2.strokeStyle = "blue";
+    dom2.stroke();
+    dom2.closePath();
+
+
+
+    dom3.beginPath();
+    dom3.moveTo(500, 500);
+    dom3.lineTo(350, 500);
+    dom3.lineWidth = "14";
+    dom3.strokeStyle = "pink";
+    dom3.stroke();
+    dom3.closePath();
+</script>
+
+</html>
